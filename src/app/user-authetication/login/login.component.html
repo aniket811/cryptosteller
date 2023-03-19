@@ -1,0 +1,18 @@
+<script src="./login.js"></script>
+  <div class="login-box">
+    <div class="lb-header">
+      <a class="active" id="login-box-link">Login</a>
+      <a  id="signup-box-link" routerLink="/register" >Sign Up</a>
+    </div>
+    <form class="email-login" name="loginUser" [formGroup]="loginForm" (ngSubmit)="getuserLogin(loginForm.value)" >
+      <div class="u-form-group">
+        <input type="email" placeholder="Email" name="Email" formControlName="userName" />
+      </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Password" name="Password" formControlName="Password" />
+      </div>
+      <div class="u-form-group">
+        <input type="submit" value="Log in" class="signin">
+      </div>
+    </form>
+  </div>

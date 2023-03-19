@@ -1,0 +1,6 @@
+<form name="cityWeather" method="post" #cityForm="ngForm" (ngSubmit)="getWeather(cityForm.value)" class="form-group mt-5"> 
+    <div class="input-group mb-3">
+        <input type="text" class="form-control ml-2" placeholder="Enter City Name" aria-label="cityName" name="cityName" aria-describedby="basic-addon1" ngModel>
+        <input type="submit" value="Get Weather" class="btn btn-success ml-2">
+    </div>
+</form>
