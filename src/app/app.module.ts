@@ -30,7 +30,7 @@ import { AuthenticationService } from './services/authentication.service';
 BrowserAnimationsModule,
     ToastrModule.forRoot(
       {
-        timeOut: 1000,
+        timeOut: 2000,
         positionClass: 'toast-top-right',
         preventDuplicates: true,
         

@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'weather',component:WeatherDashboardComponent,canActivate:[AuthsguardGuard],data:{name:'weather'}},
   {path:'crypto',component:CryptoDashboardComponent,canActivate:[AuthsguardGuard],data:{name:'crypto'}},
-  {path:'**',redirectTo:'/login'  } 
+  {path:'**',redirectTo:'/login' } 
 ];
 
 @NgModule({
