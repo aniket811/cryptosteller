@@ -25,9 +25,9 @@ export class RegisterComponent {
     debugger
     this.auth.registerUserData(userdata).pipe( catchError((error:HttpErrorResponse)=>{
       if(error.error instanceof ErrorEvent){
-        this.toast.error(error.error.message);
+        this.toast.error('Something has wrong ');
       }
-      return throwError(this.toast.error(error.error.message));
+      return throwError(this.toast.error("Something has wrong "));
     }))
     .subscribe((data:any)=>{
       console.log(data);

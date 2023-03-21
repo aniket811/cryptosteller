@@ -10,12 +10,12 @@ export class AuthenticationService {
   headers=new HttpHeaders().set('Access-Control-Allow-Origin','*').set('Access-Control-Check','*');
   // Method for Registering User
    registerUserData(data:any):Observable<any>{
-     return this.http.post<any>('http://aniket811-001-site1.itempurl.com/api/Account/Register',data,{headers:this.headers});
+     return this.http.post<any>('http://ajosh4347-001-site1.dtempurl.com/api/Account/Register',data,{headers:this.headers});
     }
     
     // Method for Login User
     loginUserData(data:any):Observable<any>{
-      return this.http.post<any>('http://aniket811-001-site1.itempurl.com/api/Account/Login',data,{headers:this.headers});
+      return this.http.post<any>('http://ajosh4347-001-site1.dtempurl.com/api/Account/Login',data,{headers:this.headers});
     }
 
 }

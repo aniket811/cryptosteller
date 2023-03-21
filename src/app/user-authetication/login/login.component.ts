@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.loginUserData(data).pipe( catchError((error:HttpErrorResponse)=>{
       
-      return throwError(this.toast.error(error.error.message));
+      return throwError(this.toast.error("Something went wrong" ));
     })).subscribe(((res:any)=>{
       this.loginService.isAuthenticated.next(true);
       this.toast.success('Login Successfull !');
