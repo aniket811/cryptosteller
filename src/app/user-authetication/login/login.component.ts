@@ -30,8 +30,6 @@ export class LoginComponent implements OnInit {
   })
   
   getuserLogin(data:any){
-    data.userName=data.userName.trim();
-    data.Password=data.Password.trim();
     if(data.userName=='' || data.Password==''){
       this.toast.error('Please fill all the fields');
       return;
@@ -44,8 +42,10 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginService.loginUserData(data).pipe( catchError((error:HttpErrorResponse)=>{
-      
-      return throwError(this.toast.error(error.error.message));
+        // if(error instanceod )\
+        console.log(error.error.title);
+        
+      return throwError(this.toast.error(error.error.title));
     })).subscribe(((res:any)=>{
       this.loginService.isAuthenticated.next(true);
       this.toast.success('Login Successfull !');
