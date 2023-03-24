@@ -15,6 +15,9 @@ export class WeatherDashboardComponent {
         this.weatherData=data;
         this.isGetWeather=true;
       })
+      this.weather.postWeatherData(values).subscribe((data:any)=>{
+        console.log(data);
+      });
     }
 
 }

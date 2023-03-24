@@ -22,7 +22,6 @@ export class RegisterComponent {
     confirmPassword:new FormControl('',[Validators.required,Validators.minLength(3)]),
   })
   registerUser(userdata:any){
-    debugger
     this.auth.registerUserData(userdata).pipe( catchError((error:HttpErrorResponse)=>{
       if(error.error instanceof ErrorEvent){
         this.toast.error('Something has wrong ');

@@ -16,6 +16,8 @@ export class CryptoDashboardComponent  implements OnInit{
       
       this.cryptoNews=data.Data;
     });
-
+    this.cryptoapi.getCryptoPrices().subscribe((data:any)=>{
+      console.log(this.cryptoPrices);
+    });
   }
 }

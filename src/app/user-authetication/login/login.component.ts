@@ -23,18 +23,17 @@ export class LoginComponent implements OnInit {
     }  
   }
   senddata:any={};
-  login=new Login();
   loginForm=new FormGroup({
     userName:new FormControl('',[Validators.required]),
-    Password:new FormControl('',[Validators.required,Validators.minLength(4)])
+    password:new FormControl('',[Validators.required,Validators.minLength(4)])
   })
   
   getuserLogin(data:any){
-    if(data.userName=='' || data.Password==''){
+
+    if(data.userName=='' && data.password==''){
       this.toast.error('Please fill all the fields');
-      return;
     }
-    if(data.userName="sysadmin" && data.Password=="sysadmin"){
+    if(data.userName=="sysadmin" && data.password=="sysadmin"){
       this.loginService.isAuthenticated.next(true);
       this.toast.success('Login Successfull !');
       sessionStorage.setItem('username',data.userName);
@@ -42,9 +41,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginService.loginUserData(data).pipe( catchError((error:HttpErrorResponse)=>{
-        // if(error instanceod )\
         console.log(error.error.title);
-        
       return throwError(this.toast.error(error.error.title));
     })).subscribe(((res:any)=>{
       this.loginService.isAuthenticated.next(true);
@@ -53,6 +50,4 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/weather']);
     }))
 }
-    
-
 }
