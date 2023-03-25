@@ -35,14 +35,14 @@ export class LoginComponent implements OnInit {
     }
     if(data.userName=="sysadmin" && data.password=="sysadmin"){
       this.loginService.isAuthenticated.next(true);
-      this.toast.success('Login Successfull !');
+      this.toast.warning('You are logged in as an SuperAdmin !');
       sessionStorage.setItem('username',data.userName);
       this.router.navigate(['/weather']);
       return;
     }
     this.loginService.loginUserData(data).pipe( catchError((error:HttpErrorResponse)=>{
         console.log(error.error.title);
-      return throwError(this.toast.error(error.error.title));
+      return throwError(this.toast.error("Something went wrong please try again later !! "));
     })).subscribe(((res:any)=>{
       this.loginService.isAuthenticated.next(true);
       this.toast.success('Login Successfull !');
