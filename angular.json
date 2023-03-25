@@ -72,8 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cryptosteller:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "cryptosteller:build"
           }
         },
         "test": {
