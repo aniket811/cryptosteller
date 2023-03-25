@@ -1,27 +1,17 @@
 <table class="table table-dark">
   <thead>
     <tr class="bg-primary">
-      <th scope="col">Crypto Currency</th>
+      <th scope="col">Crypto Currency (In Symbols)</th>
       <th scope="col">Prices in (USD)</th>
       <th scope="col">Prices in (INR)</th>
     </tr>
   </thead>
   <tbody>
-    <tr 
-    >
-      <td>Hello</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let crypto of coinPrices |keyvalue">
+      <th scope="row">{{crypto.key}}</th>
+      <td>{{crypto.value.USD}} $</td>
+      <td>{{crypto.value.INR}}  ₹
+      </td>
     </tr>
   </tbody>
 </table>
@@ -34,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title">{{news.title}}</h5>
           <p class="card-text">{{news.body}}</p>
-          <a href="{{news.url}}" class="btn btn-primary">Read Article</a>
+          <a href="{{news.url}}" class="btn btn-primary">Read Full Article</a>
         </div>
       </div>
     </div>
