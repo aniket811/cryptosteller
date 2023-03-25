@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+      "target": "http://ajosh4347-001-site1.dtempurl.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
