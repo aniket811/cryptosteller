@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { FeaturesService } from 'src/app/services/features.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { FeaturesService } from 'src/app/services/features.service';
 export class WeatherDashboardComponent {
   weatherData:any=[];
   isGetWeather:boolean=false;
-    constructor(private weather:FeaturesService) { }
+    constructor(private weather:FeaturesService,private toastr:ToastrService) { }
     getWeather(values:any){
       this.weather.getWeatherData(values.cityName).subscribe((data:any)=>{
         this.weatherData=data;
         this.isGetWeather=true;
       })
       this.weather.postWeatherData(values).subscribe((data:any)=>{
-        console.log(data);
+        this.toastr.success("Weather Data Posted Successfully !!");
       });
     }
 
