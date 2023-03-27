@@ -1,27 +1,67 @@
-# Cryptosteller
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+# Project Title
 
-## Development server
+A brief description of what this project does and who it's for Cryptosteller.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## API Reference
 
-## Build
+#### Get Weather Forecast 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```http
+  GET openweathermap.com/api
+```
 
-## Running unit tests
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` |  4776f3cb0f67c30d16dd152487bef8b6|
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Badges
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Add badges from somewhere like: [shields.io](https://shields.io/)
 
-## Further help
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Project Title
+
+A brief description of what this project does and who it's for Cryptosteller.
+
+
+
+# Project Title
+
+A brief description of what this project does and who it's for Cryptosteller.
+
+
+
+## Features
+
+- Authenticate using ASP.NET API Login and Signup
+- Get Realtime Weather Forecast using the city name
+- Get Crypto News and Crypto Prices realtime using API 
+- Built Upon Angular in Frontend and ASP.NET API as a backend
+
+
+# Project Title
+
+A brief description of what this project does and who it's for Cryptosteller.
+
+
+
+
+## Tech Stack
+
+**Client:** Angular,Html,Css
+
+**Server:** ASP.NET API Identity, MS SQL Server 2019
+
+
+## Demo
+
+https://cryptosteller.vercel.app/login
+
