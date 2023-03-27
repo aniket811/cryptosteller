@@ -13,13 +13,13 @@ export class CryptoDashboardComponent  implements OnInit{
  public coinPrices:any[]= []
   ngOnInit() {
     this.cryptoapi.getCryptoNews().subscribe((data:any)=>{
-      console.log(data);
-      
+      console.log(data);  
       this.cryptoNews=data.Data;
     });
     this.cryptoapi.getCryptoPrices().subscribe((datas:any[])=>{
       this.coinPrices=datas;
       console.log(this.coinPrices);
     });
+    var continueUser=localStorage.setItem('lastroute','crypto')
   }
 }

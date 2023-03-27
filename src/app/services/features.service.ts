@@ -9,7 +9,7 @@ export class FeaturesService {
 
   constructor(private http:HttpClient) { }
   public getWeatherData(cityName:string):Observable<any[]>{
-    return this.http.get<any[]>(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=4776f3cb0f67c30d16dd152487bef8b6&units=metric
+    return this.http.get<any[]>(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=4776f3cb0f67c30d16dd152487bef8b6&units=metric
     `);
   }
   public getCryptoNews():Observable<any[]>{

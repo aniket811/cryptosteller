@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FeaturesService } from 'src/app/services/features.service';
 
@@ -7,7 +7,7 @@ import { FeaturesService } from 'src/app/services/features.service';
   templateUrl: './weather-dashboard.component.html',
   styleUrls: ['./weather-dashboard.component.css']
 })
-export class WeatherDashboardComponent {
+export class WeatherDashboardComponent implements OnInit {
   weatherData:any=[];
   isGetWeather:boolean=false;
     constructor(private weather:FeaturesService,private toastr:ToastrService) { }
@@ -20,5 +20,7 @@ export class WeatherDashboardComponent {
         this.toastr.success("Weather Data Posted Successfully !!");
       });
     }
-
+    ngOnInit(): void {
+      var continueUser=localStorage.setItem('lastroute','weather')
+    }
 }

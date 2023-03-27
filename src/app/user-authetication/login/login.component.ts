@@ -18,8 +18,15 @@ export class LoginComponent implements OnInit {
     var user=sessionStorage.getItem('username');
     if(user!=null){
       this.loginService.isAuthenticated.next(true);
-      this.toast.success('Login Successfull !');
-      this.router.navigate(['/weather']);
+      var continueUser=localStorage.getItem('lastroute');
+      if(continueUser=='weather'){
+        this.router.navigate(['/weather']);
+        this.toast.success("You are already logged in !")
+      }
+      else if(continueUser=='crypto'){
+        this.router.navigate(['/crypto']);
+        this.toast.success("You are already logged in !")
+      }
     }  
   }
   senddata:any={};
