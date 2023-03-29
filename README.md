@@ -33,12 +33,6 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 - Built Upon Angular in Frontend and ASP.NET API as a backend
 
 
-# Project Title
-
-A brief description of what this project does and who it's for Cryptosteller.
-
-
-
 
 ## Tech Stack
 
