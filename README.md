@@ -1,7 +1,7 @@
 
 # CryptoSteller
 
-Note:This site is using an http api from https domain so please click on lock option in search box before site url click on site setting then allow insecure requests 
+Note:This site is using an http api from https domain so please click on lock icon in search box before site url click on site setting then allow insecure requests 
 to enable the api calls.
 
 
