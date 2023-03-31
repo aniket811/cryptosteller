@@ -28,10 +28,10 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 ## Features
 
-- Authenticate using ASP.NET API Login and Signup
+- Authenticate using ASP.NET Identity API Login and Signup
 - Get Realtime Weather Forecast using the city name
 - Get Crypto News and Crypto Prices realtime using API 
-- Built Upon Angular in Frontend and ASP.NET API as a backend
+- Uses Third Party api's like Openweathermap and CryptoCompare 
 
 
 
