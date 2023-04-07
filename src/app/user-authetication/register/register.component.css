@@ -3,10 +3,7 @@
   justify-content: center;
   align-items: center;
 }
-@media only screen and (max-width: 300px) {
-  .login-box{
-    width: 100%;
-  }
+
   .u-form-group input[type="email"],
   .u-form-group input[type="password"]{
     width: 100%;
@@ -22,8 +19,7 @@
   .forgot-password{
     width:100%;
   }
-}
-  
+
 
 body{
     background-color: #1cbb9b;
@@ -42,6 +38,12 @@ body{
     -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+  }
+  
+  @media only screen and (max-width:390px) {
+    .login-box {
+      width: 410px;
+    }
   }
   .lb-header{
     position:relative;
