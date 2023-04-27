@@ -13,15 +13,13 @@
             <a class="nav-link" value="weather" (click)="checkUserAuthenticated($event)" name="weather">Weather</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" value="crypto" (click)="checkUserAuthenticated($event)" name="crypto">Crypto News</a>
+            <a class="nav-link" value="crypto"  name="crypto" (click)="checkUserAuthenticated($event)">Crypto News</a>
           </li>
         </ul>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav navbar-right">
             <div class="container" >
-              <li class="nav-item" *ngIf="isLoggedin" >
-                  <button class="btn btn-danger btn-sm"  (click)="userLogout()"> Logout</button>
-              </li>
+             
             </div>
             </ul>
           </div>

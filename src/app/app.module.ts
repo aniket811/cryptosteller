@@ -37,7 +37,7 @@ BrowserAnimationsModule,
       }
     )
   ],
-  providers: [ToastrService,AuthenticationService],
+  providers: [ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

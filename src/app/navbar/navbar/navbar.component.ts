@@ -9,25 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isLoggedin:boolean=false;
-  constructor(private auth:AuthenticationService,private toastr:ToastrService,private router:Router) {
-    this.auth.isAuthenticated.subscribe((data:any)=>{
-      this.isLoggedin=data;
-    })
+  constructor(private toastr:ToastrService,private router:Router) {
+   
     
    }
   checkUserAuthenticated(routeVal:any)
   {
-    
-    if(this.isLoggedin)
-    {
-      this.auth.isAuthenticated.next(true);
+   
       this.router.navigateByUrl(routeVal.target.name)
-    }
-    else{
-      this.auth.isAuthenticated.next(false);
-      this.toastr.error("You are not logged in")
-    }
+    
+   
   }
   userLogout(){
     sessionStorage.removeItem('username');
