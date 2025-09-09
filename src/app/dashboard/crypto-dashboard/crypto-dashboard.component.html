@@ -1,31 +1,52 @@
-<table class="table table-dark">
-  <thead>
-    <tr class="bg-primary">
-      <th scope="col">Crypto Currency (In Symbols)</th>
-      <th scope="col">Prices in (USD)</th>
-      <th scope="col">Prices in (INR)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let crypto of coinPrices |keyvalue">
-      <th scope="row"><img  alt="" > {{crypto.key}}</th>
-      <td>{{crypto.value.USD}} $</td>
-      <td>{{crypto.value.INR}}  ₹
-      </td>
-    </tr>
-  </tbody>
-</table>
-<h3 align="center">Crypto news </h3>
-<div class="container">
-  <div class="row">
+<!-- Crypto Prices Table -->
+<div class="container my-4">
+  <h3 class="text-center mb-4">💹 Crypto Prices</h3>
+  <div class="table-responsive shadow rounded">
+    <table class="table table-dark table-hover text-center align-middle">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th scope="col">Crypto</th>
+          <th scope="col">Price (USD)</th>
+          <th scope="col">Price (INR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let crypto of coinPrices | keyvalue">
+          <th scope="row" class="d-flex align-items-center justify-content-center">
+          <img 
+  [src]="'assets/cryptocurrency-icons/svg/color/' + crypto.key.toLowerCase() + '.svg'" 
+  alt="{{crypto.key}}" width="24" height="24" (error)="onIconLoadError($event)">
+            {{crypto.key}}
+          </th>
+          <td>{{crypto.value.USD | number:'1.2-2'}} $</td>
+          <td>{{crypto.value.INR | number:'1.2-2'}} ₹</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Crypto News Section -->
+<div class="container my-5">
+  <h3 class="text-center mb-4">📰 Crypto News</h3>
+  <div class="row g-4">
     <div class="col-md-4" *ngFor="let news of cryptoNews">
-      <div class="card">
-        <img class="card-img-top" src="{{news.imageurl}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{news.title}}</h5>
-          <p class="card-text">{{news.body}}</p>
-          <a href="{{news.url}}" class="btn btn-primary">Read Full Article</a>
+      <div class="card h-100 shadow border-0 rounded-3">
+        <img class="card-img-top rounded-top" [src]="news.imageurl" alt="News image">
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title fw-bold text-truncate" title="{{news.title}}">
+            {{news.title}}
+          </h6>
+          <p class="card-text text-muted small flex-grow-1">
+            {{
+              news.body.split(' ').slice(0, 60).join(' ')
+            }}{{ news.body.split(' ').length > 60 ? '...' : '' }}
+          </p>
+          <a [href]="news.url" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">
+            Read Full Article →
+          </a>
         </div>
       </div>
     </div>
   </div>
+</div>

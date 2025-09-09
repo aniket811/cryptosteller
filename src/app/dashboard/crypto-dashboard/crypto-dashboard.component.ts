@@ -22,4 +22,7 @@ export class CryptoDashboardComponent  implements OnInit{
     });
     var continueUser=localStorage.setItem('lastroute','crypto')
   }
+  onIconLoadError(err:any){
+      err.target.src = "assets/cryptocurrency-icons/svg/color/default.svg"
+  }
 }
