@@ -1,16 +1,65 @@
-<form name="cityWeather" method="post" #cityForm="ngForm" (ngSubmit)="getWeather(cityForm.value)" class="form-group mt-5"> 
-    <div class="input-group mb-3">
-        <input type="text" class="form-control ml-2" placeholder="Enter City Name" aria-label="cityName" name="cityName" aria-describedby="basic-addon1" ngModel>
-        <input type="submit" value="Get Weather" class="btn btn-success ml-2">
-    </div>
+<!-- Weather Search Form -->
+<form name="cityWeather"
+      method="post"
+      #cityForm="ngForm"
+      (ngSubmit)="getWeather(cityForm.value)"
+      class="form-group mt-5">
+
+  <div class="input-group mb-4 shadow-sm">
+    <input type="text"
+           class="form-control rounded-start"
+           placeholder="Enter City Name"
+           aria-label="cityName"
+           name="cityName"
+           ngModel
+           required>
+    <button type="submit"
+            class="btn btn-primary rounded-end">
+      Get Weather
+    </button>
+  </div>
 </form>
-<div class="card" style="width: 100%; "  *ngIf="isGetWeather" >
-    <div class="card-body">
-      <h5 class="card-title" align="center" >City Name: {{weatherData.name}}</h5>
-      <img src="http://openweathermap.org/img/w/{{weatherData.weather[0].icon}}.png"/>
-      <p class="card-text">Weather Description: <b>{{weatherData.weather[0].description}}</b></p>
-      <p class="card-text">Current Weather: <b>{{weatherData.weather[0].main}} </b></p>
-      <p class="card-text">Current Temparature: <b>{{weatherData.main.temp}} °C</b></p>
-        <p class="card-text">Min Temparature: <b>{{weatherData.main.temp_min}}°C</b></p>
+<!-- Placeholder -->
+<div *ngIf="!isGetWeather" class="text-center mt-5">
+  <h4 class="text-muted">🌍 Enter a city name to see the weather</h4>
+</div>
+
+<!-- Weather Result Card -->
+<div class="card shadow-lg border-0 rounded-4 overflow-hidden" *ngIf="isGetWeather">
+  <div class="card-header bg-primary text-white text-center py-3">
+    <h4 class="mb-0">🌤 Weather in {{ weatherData.name }}</h4>
+  </div>
+
+  <div class="card-body text-center">
+    <!-- Weather Icon -->
+    <img [src]="'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
+         alt="Weather icon"
+         class="mb-3"
+         width="100"
+         height="100"/>
+
+    <!-- Weather Details -->
+    <h5 class="fw-bold text-capitalize mb-3">
+      {{ weatherData.weather[0].description }}
+    </h5>
+
+    <div class="row text-center">
+      <div class="col-6 mb-2">
+        🌡 <strong>{{ weatherData.main.temp }} °C</strong><br/>
+        <small class="text-muted">Current Temp</small>
+      </div>
+      <div class="col-6 mb-2">
+        ⛅ <strong>{{ weatherData.weather[0].main }}</strong><br/>
+        <small class="text-muted">Condition</small>
+      </div>
+      <div class="col-6 mb-2">
+        🔽 <strong>{{ weatherData.main.temp_min }} °C</strong><br/>
+        <small class="text-muted">Min Temp</small>
+      </div>
+      <div class="col-6 mb-2">
+        🔼 <strong>{{ weatherData.main.temp_max }} °C</strong><br/>
+        <small class="text-muted">Max Temp</small>
+      </div>
     </div>
+  </div>
 </div>
