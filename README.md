@@ -1,48 +1,64 @@
+# 🌍💰 Cryptosteller
 
-# CryptoSteller
+Cryptosteller is a simple Angular application that combines **Weather Forecasts** and **Crypto News/Prices** into a single dashboard.  
+It helps users quickly check the weather in any city and stay updated with the latest cryptocurrency market news.
 
-**Note:This site is using an http api from https domain so please click on lock icon in search box before site url click on site setting then allow insecure requests 
-to enable the api calls.**
+---
 
+## ✨ Features
 
-## API Reference
+#### 🌍 Weather
+- Search weather by **city name**
+- Displays:
+  - Current temperature
+  - Min temperature
+  - Weather condition (Clouds, Rain, Clear, etc.)
+  - Weather description with icons
+- Placeholder message when no city is searched
+- Error handling for invalid cities (planned enhancement)
+- Auto location weather (future scope)
 
-#### Get Weather Forecast 
+#### 💰 Crypto
+- Displays crypto news with images
+- Shows crypto icons dynamically
+- Links to full articles
+- Planned:
+  - Live crypto prices via API
+  - % price change indicators
+  - Watchlist functionality
 
-```http
-  GET openweathermap.com/api
-```
+### 🎨 UI/UX
+- Clean and simple Bootstrap-based UI
+- Responsive layout
+- Placeholder shown when no results
+- Future:
+  - Dark Mode
+  - Loading spinners/skeleton screens
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` |  4776f3cb0f67c30d16dd152487bef8b6|
+---
 
+## 🛠️ Tech Stack
+- **Frontend**: Angular 18, TypeScript
+- **Styling**: Bootstrap 5, Custom CSS
+- **APIs**:
+  - [OpenWeatherMap](https://openweathermap.org/api) (for weather data)
+  - Crypto News API / Crypto Icons (for crypto section)
 
-## Badges
+---
 
-Add badges from somewhere like: [shields.io](https://shields.io/)
+## 🚀 Getting Started
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- Angular CLI
 
-## Features
+### Installation
+```bash
+# Clone repo
+git clone https://github.com/your-username/cryptosteller.git
 
-- Authenticate using ASP.NET Identity API Login and Signup
-- Get Realtime Weather Forecast using the city name
-- Get Crypto News and Crypto Prices realtime using API 
-- Uses Third Party api's like Openweathermap and CryptoCompare 
+# Navigate to project folder
+cd cryptosteller
 
-
-
-## Tech Stack
-
-**Client:** Angular,Html,Css
-
-**Server:** ASP.NET API Identity, MS SQL Server 2019
-
-
-## Demo
-
-https://cryptosteller.vercel.app/login
-
+# Install dependencies
+npm install --legacy-peer-deps
