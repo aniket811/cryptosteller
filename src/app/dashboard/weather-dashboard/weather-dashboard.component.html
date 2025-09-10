@@ -43,26 +43,26 @@
          height="100"/>
 
     <!-- Weather Details -->
-    <h5 class="fw-bold text-capitalize mb-3">
+    <h5 class="fw-bold text-capitalize mb-3" >
       {{ weatherData.weather[0].description }}
     </h5>
 
     <div class="row text-center">
       <div class="col-6 mb-2">
         🌡 <strong>{{ weatherData.main.temp }} °C</strong><br/>
-        <small class="text-muted">Current Temp</small>
+        <small class="">Current Temp</small>
       </div>
       <div class="col-6 mb-2">
         ⛅ <strong>{{ weatherData.weather[0].main }}</strong><br/>
-        <small class="text-muted">Condition</small>
+        <small class="">Condition</small>
       </div>
       <div class="col-6 mb-2">
         🔽 <strong>{{ weatherData.main.temp_min }} °C</strong><br/>
-        <small class="text-muted">Min Temp</small>
+        <small class="">Min Temp</small>
       </div>
       <div class="col-6 mb-2">
         🔼 <strong>{{ weatherData.main.temp_max }} °C</strong><br/>
-        <small class="text-muted">Max Temp</small>
+        <small class="">Max Temp</small>
       </div>
     </div>
   </div>
