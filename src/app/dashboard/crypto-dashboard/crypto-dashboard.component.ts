@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService, Spinner } from 'ngx-spinner';
 import { FeaturesService } from 'src/app/services/features.service';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-crypto-dashboard',
@@ -8,7 +9,7 @@ import { FeaturesService } from 'src/app/services/features.service';
   styleUrls: ['./crypto-dashboard.component.css']
 })
 export class CryptoDashboardComponent  implements OnInit{
-  constructor(private cryptoapi:FeaturesService,private spinner:NgxSpinnerService) { }
+  constructor(private cryptoapi:FeaturesService,private spinner:NgxSpinnerService,private themeService:ThemeService) { }
   public cryptoNews: any[]=[];
   public cryptoPrices: any[]=[];
  public coinPrices:any[]= []
@@ -38,5 +39,12 @@ export class CryptoDashboardComponent  implements OnInit{
        
       console.log(this.coinPrices);
     });
+  }
+  getCurrentTheme():string{
+    if(this.themeService.getCurrentTheme()=='light'){
+      return "light"
+    }else{
+      return "dark";
+    }
   }
 }

@@ -2,8 +2,8 @@
 <div class="container my-4">
   <h3 class="text-center mb-4">💹 Crypto Prices</h3>
   <div class="table-responsive shadow rounded">
-    <table class="table table-dark table-hover text-center align-middle">
-      <thead class="bg-primary text-white">
+    <table [ngClass]="getCurrentTheme()=='light'?'table table-light table-hover text-center align-middle table-bordered':'table table-dark table-hover text-center align-middle table-bordered'" >
+      <thead class="bg-primary" [ngClass]="getCurrentTheme()=='light'?'text-dark':'text-white'">
         <tr>
           <th scope="col">Crypto</th>
           <th scope="col">Price (USD)</th>
@@ -37,7 +37,7 @@
           <h6 class="card-title fw-bold text-truncate" title="{{news.title}}">
             {{news.title}}
           </h6>
-          <p class="card-text text-muted small flex-grow-1">
+          <p class="card-text " [ngClass]="getCurrentTheme()=='light'?'text-dark':'text-white'">
             {{
               news.body.split(' ').slice(0, 60).join(' ')
             }}{{ news.body.split(' ').length > 60 ? '...' : '' }}

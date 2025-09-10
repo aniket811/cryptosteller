@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav [ngClass]="themeService.getCurrentTheme() === 'light' 
+  ? 'navbar navbar-expand-lg bg-body-tertiary' 
+  : 'navbar navbar-expand-lg navbar-dark bg-dark'">
+
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Cryptosteller</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,6 +9,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" >Home</a>
           </li>
@@ -17,11 +21,21 @@
           </li>
         </ul>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-          <ul class="navbar-nav navbar-right">
+          <ul class="navbar-nav navbar-left">
             <div class="container" >
-             
+               
+  
+
             </div>
             </ul>
+            <button class="btn btn-outline-secondary ms-auto" (click)="toggleTheme()">
+              <div *ngIf="themeService.getCurrentTheme()=='light'">
+                  <i class="fa-solid fa-moon"></i> Dark Mode
+              </div>
+               <div *ngIf="themeService.getCurrentTheme()=='dark'">
+              <i class="fa-solid fa-lightbulb"></i> Light Mode
+              </div>
+            </button>
           </div>
       </div>
     </div>
