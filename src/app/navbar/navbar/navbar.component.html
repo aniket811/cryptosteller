@@ -28,7 +28,7 @@
 
             </div>
             </ul>
-            <button class="btn btn-outline-secondary ms-auto" (click)="toggleTheme()">
+            <button class="btn btn-outline-secondary ms-auto" (click)="toggleTheme()"  [ngClass]="themeService.getCurrentTheme()=='light'?'text-dark':'text-white'">
               <div *ngIf="themeService.getCurrentTheme()=='light'">
                   <i class="fa-solid fa-moon"></i> Dark Mode
               </div>
