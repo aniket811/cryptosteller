@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+/* Default Light */
+body.light-mode {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+body.light-mode .card {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #e4e4e4;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e4e4e4;
+  border: 1px solid #333;
+}
+
+body.dark-mode .navbar {
+  background-color: #222;
+}
