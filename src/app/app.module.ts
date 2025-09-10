@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthenticationService } from './services/authentication.service';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,17 +28,19 @@ import { AuthenticationService } from './services/authentication.service';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot(
       {
         timeOut: 2000,
         positionClass: 'toast-top-right',
         preventDuplicates: true,
         
-      }
+      },
     )
+   
   ],
-  providers: [ToastrService],
+  providers: [ToastrService,NgxSpinnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
