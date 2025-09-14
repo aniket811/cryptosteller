@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   public isUserForgottenPassword:boolean = false;
   constructor(private router:Router,private googleSignIn:AngularFireAuth,private toast:ToastrService,public themeService:ThemeService,private authService:AuthenticationService) { }
   ngOnInit(): void {
-
+    
   }
  loginForm:any = new FormGroup({
       email: new FormControl('',[Validators.email,Validators.required]),

@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,17 +13,18 @@ import { sendEmailVerification } from 'firebase/auth';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent  implements OnInit{
   constructor(private auth:AuthenticationService,private toast:ToastrService,private route:Router, private googleSignIn:AngularFireAuth) { }
   registerForm=new FormGroup({
     email:new FormControl('',[Validators.required,Validators.minLength(3)]),
     password:new FormControl('',[Validators.required,Validators.minLength(3)]),
   })
+  ngOnInit(): void {
+    this.auth.redirectIfAuthenticated();
+  }
 
    registerUser(userdata: any) {
-    console.log(userdata,"Data")
-  this.googleSignIn
-    .createUserWithEmailAndPassword(userdata.email, userdata.password)
+  this.googleSignIn.createUserWithEmailAndPassword(userdata.email, userdata.password)
     .then((userCredential: any) => {
       const user = userCredential.user;
 
