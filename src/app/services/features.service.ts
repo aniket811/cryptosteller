@@ -11,17 +11,17 @@ export class FeaturesService {
   weatherapikey=environment.weatherapikey;
   cryptoapikey=environment.cryptoapikey;
   constructor(private http:HttpClient) { }
-  public getWeatherData(cityName:string):Observable<any[]>{
-    return this.http.get<any[]>(`${this.weatherapis}/data/2.5/weather?q=${cityName}&appid=${this.weatherapikey}&units=metric
+   getWeatherData(cityName:string):Observable<any[]>{
+    return this.http.get<any[]>(`${this.weatherapis}/data/2.5/weather?q=${cityName}&type=city&appid=${this.weatherapikey}&units=metric
     `);
   }
-  public getCryptoNews():Observable<any[]>{
+  getCryptoNews():Observable<any[]>{
     return this.http.get<any[]>(`${this.cryptoapis}/data/v2/news/?lang=EN&api_key=${this.cryptoapikey}`);
   }
-  public getCryptoPrices():Observable<any[]>{
+   getCryptoPrices():Observable<any[]>{
     return this.http.get<any[]>(`${this.cryptoapis}/data/pricemulti?fsyms=BTC,ETH,D,BNB,USDC,XRP,ARB,SHIB,TRX,BUSD&tsyms=USD,EUR,INR`)
   }
-  public postWeatherData(data:any):Observable<any>{
+   postWeatherData(data:any):Observable<any>{
     return this.http.post<any>("http://ajosh4347-001-site1.dtempurl.com/WeatherForecast/Post",data);
   }
 }

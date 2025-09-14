@@ -1,32 +1,20 @@
-<script src="./login.js"></script>
+<div class="login-wrapper">
   <div class="login-box">
     <div class="lb-header">
-      <a  id="signup-box-link" routerLink="/login">Login</a>
-      <a  class="active" id="signup-box-link" routerLink="/register" >Sign Up</a>
+      <a  routerLink="/login">Login</a>
+      <a class="active" >Sign Up</a>
     </div>
-<form class="email-login " method="post" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)" >
-  
-  <div class="u-form-group">
-    <input type="text" placeholder="Enter your Firstname" name="firstName" formControlName="firstName" />
+
+    <form class="email-login" [formGroup]="registerForm" (submit)="registerUser(registerForm.value)" method="post">
+      <div class="u-form-group">
+        <input type="email" placeholder="Enter your Email" formControlName="email" required name />
+      </div>
+      <div class="u-form-group">
+        <input type="password" placeholder="Enter your Password" formControlName="password" required />
+      </div>
+      <div class="u-form-group">
+        <button type="submit">Register</button>
+      </div>
+    </form>
   </div>
-  
-  <div class="u-form-group">
-    <input type="text" placeholder="Enter your Last name" name="lastName" formControlName="lastName"/>
-  </div>
-    <div class="u-form-group">
-      <input  type="text" placeholder="Enter your username"   name="userName" formControlName="userName"/>
-    </div>
-    <div class="u-form-group ">
-      <input type="email" placeholder="Enter your Email" name="Email" formControlName="Email"/>
-    </div>
-    <div class="u-form-group">
-      <input type="password" placeholder="Enter your Password" name="password"  formControlName="password"/>
-    </div>
-    <div class="u-form-group">
-      <input type="password" placeholder="Enter your Confirm Password" name="confirmpassword" formControlName="confirmPassword"/>
-    </div>
-    <div class="u-form-group">
-      <button type="submit">Sign Up</button>
-    </div>
-  </form>
-  
+</div>

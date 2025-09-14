@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ThemeService } from 'src/app/theme.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,8 @@ import { ThemeService } from 'src/app/theme.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private toastr:ToastrService,private router:Router,public themeService:ThemeService) {
+   bootstrap: any;
+  constructor(private toastr:ToastrService,private router:Router,public authService:AuthenticationService,public themeService:ThemeService,private googleSignIn:AngularFireAuth ) {
    
     
    }
@@ -22,8 +24,10 @@ export class NavbarComponent implements OnInit {
    
   }
   userLogout(){
-    sessionStorage.removeItem('username');
-    location.reload();
+    sessionStorage.removeItem('Login');
+    this.googleSignIn.signOut().then((user:any)=>{
+      this.router.navigateByUrl("/login");
+    })
   }
      ngOnInit(): void {
 
@@ -32,4 +36,10 @@ export class NavbarComponent implements OnInit {
   toggleTheme() {
     this.themeService.toggleTheme();
   }
+  closeNavbar() {
+  const navbar = document.getElementById('navbarNav');
+  if (navbar && navbar.classList.contains('show')) {
+    new this.bootstrap.Collapse(navbar).toggle();
+  }
+}
 }

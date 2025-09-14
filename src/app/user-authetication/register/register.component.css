@@ -1,166 +1,177 @@
-.sas{
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1cbb9b;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-  .u-form-group input[type="email"],
-  .u-form-group input[type="password"]{
-    width: 100%;
-    margin-top: 2;
-  }
-  .u-form-group input[type="text"]{
-    width: 100%;
-    margin-top: 2;
-  }
-  .u-form-group button{
-    width:100%;
-  }
-  .forgot-password{
-    width:100%;
-  }
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
 
+.login-box {
+ 
+  width: 100%;
+  max-width: 350px;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px #86b7fe;
+}
 
-body{
-    background-color: #1cbb9b;
-    
-  }
-  .login-box{
+.lb-header {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
 
-    
-    position:relative;
-    margin: 10px auto;
-    width: 500px;
-    height: 600px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
-  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+.lb-header a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.2s linear;
+}
+
+.lb-header .active {
+  color: #029f5b;
+  font-size: 18px;
+}
+
+.u-form-group {
+  margin-bottom: 20px;
+}
+
+.u-form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: border 0.2s;
+}
+
+.u-form-group input:focus {
+  border-color: #029f5b;
+  outline: none;
+}
+
+.u-form-group button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #1CB94E;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.u-form-group button:hover {
+  background-color: #17a44b;
+}
+
+.forgot-password {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.forgot-password a {
+  color: #888;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 420px) {
+  .login-box {
+    padding: 30px 20px;
   }
-  
-  @media only screen and (max-width:390px) {
-    .login-box {
-      width: 410px;
-    }
-  }
-  .lb-header{
-    position:relative;
-    color: #00415d;
-    margin: 5px 5px 10px 5px;
-    padding-bottom:10px;
-    border-bottom: 1px solid #eee;
-    text-align:center;
-    height:28px;
-  }
-  .lb-header a{
-    margin: 0 25px;
-    padding: 0 20px;
-    text-decoration: none;
-    color: #666;
-    font-weight: bold;
-    font-size: 15px;
-    -webkit-transition: all 0.1s linear;
-    -moz-transition: all 0.1s linear;
-    transition: all 0.1s linear;
-  }
-  .lb-header .active{
-    color: #029f5b;
-    font-size: 18px;
-  }
-  .social-login{
-    position:relative;
-    float: left;
-    width: 100%;
-    height:auto;
-    padding: 10px 0 15px 0;
-    border-bottom: 1px solid #eee;
-  }
-  .social-login a{
-    position:relative;
-    float: left;
-    width:calc(40% - 8px);
-    text-decoration: none;
-    color: #fff;
-    border: 1px solid rgba(0,0,0,0.05);
-    padding: 12px;
-    border-radius: 2px;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin: 0 3%;
-    text-align:center;
-  }
-  .social-login a i{
-    position: relative;
-    float: left;
-    width: 20px;
-    top: 2px;
-  }
-  .social-login a:first-child{
-    background-color: #49639F;
-  }
-  .social-login a:last-child{
-    background-color: #DF4A32;
-  }
-  .email-login,.email-signup{
-    position:relative;
-    float: left;
-    width: 100%;
-    height:auto;
-    margin-top: 20px;
-    text-align:center;
-  }
-  .u-form-group{
-    width:100%;
-    margin-bottom: 10px;
-  }
-  .u-form-group input[type="email"],
-  .u-form-group input[type="password"]{
-    width: calc(50% - 22px);
-    height:45px;
-    outline: none;
-    border: 1px solid #ddd;
-    padding: 0 10px;
-    border-radius: 2px;
-    color: #333;
-    font-size:0.8rem;
-    -webkit-transition:all 0.1s linear;
-    -moz-transition:all 0.1s linear;
-    transition:all 0.1s linear;
-  }
-  .u-form-group input[type="text"]{
-    width: calc(50% - 22px);
-    height:45px;
-    outline: none;
-    border: 1px solid #ddd;
-    padding: 0 10px;
-    border-radius: 2px;
-    color: #333;
-    font-size:0.8rem;
-    -webkit-transition:all 0.1s linear;
-    -moz-transition:all 0.1s linear;
-    transition:all 0.1s linear;
-  }
-  .u-form-group input:focus{
-    border-color: #358efb;
-  }
-  .u-form-group button{
-    width:50%;
-    background-color: #1CB94E;
-    border: none;
-    outline: none;
-    color: #fff;
+  .lb-header a {
+    margin: 0 10px;
     font-size: 14px;
-    font-weight: normal;
-    padding: 14px 0;
-    border-radius: 2px;
-    text-transform: uppercase;
   }
-  .forgot-password{
-    width:50%;
-    text-align: left;
-    text-decoration: underline;
-    color: #888;
-    font-size: 0.75rem;
+}
+
+
+.lb-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.lb-header a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.2s linear;
+}
+
+.lb-header .active {
+  color: #029f5b;
+  font-size: 18px;
+}
+
+.u-form-group {
+  margin-bottom: 20px;
+}
+
+.u-form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+.u-form-group input:focus {
+  border-color: #029f5b;
+  outline: none;
+}
+
+.u-form-group button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #1CB94E;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.u-form-group button:hover {
+  background-color: #17a44b;
+}
+
+.forgot-password {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.forgot-password a {
+  color: #888;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 420px) {
+  .login-box {
+    padding: 30px 20px;
   }
+  .lb-header a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+}

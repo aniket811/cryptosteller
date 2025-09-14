@@ -6,9 +6,11 @@ import { CryptoDashboardComponent } from './dashboard/crypto-dashboard/crypto-da
 import { RegisterComponent } from './user-authetication/register/register.component';
 import { AuthsguardGuard } from './guards/authsguard.guard';
 const routes: Routes = [
-  {path:"",component:WeatherDashboardComponent,data:{name:'weather'}},
-  {path:'weather',component:WeatherDashboardComponent,data:{name:'weather'}},
-  {path:'crypto',component:CryptoDashboardComponent,data:{name:'crypto'}}
+  {path:"",component:LoginComponent, canActivate:[AuthsguardGuard]},
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'weather',component:WeatherDashboardComponent,data:{name:'weather'},canActivate:[AuthsguardGuard]},
+  {path:'crypto',component:CryptoDashboardComponent,data:{name:'crypto'},canActivate:[AuthsguardGuard]}
 ];
 
 @NgModule({
