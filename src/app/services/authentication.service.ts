@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   public isAuthenticated=new BehaviorSubject<boolean>(false);
-  constructor(private http:HttpClient ) { }
-  headers=new HttpHeaders().set('Access-Control-Allow-Origin','*').set('Access-Control-Check','*');
-  // Method for Registering User
-   registerUserData(data:any):Observable<any>{
-     return this.http.post<any>('http://ajosh4347-001-site1.dtempurl.com/api/Account/Register',data,{headers:this.headers});
+  constructor(private http:HttpClient ,private router:Router) { }
+  isUserLoggedIn(): boolean {
+    return !!sessionStorage.getItem('Login');
+  }
+  redirectIfAuthenticated(){
+    if(this.isUserLoggedIn()){
+        this.router.navigateByUrl("/weather");
+      }
     }
-    
-    // Method for Login User
-    loginUserData(data:any):Observable<any>{
-      return this.http.post<any>('http://ajosh4347-001-site1.dtempurl.com/api/Account/Login',data,{headers:this.headers});
-    }
-
 }

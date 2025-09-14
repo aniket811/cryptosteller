@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FeaturesService } from 'src/app/services/features.service';
 import { ThemeService } from 'src/app/theme.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-weather-dashboard',
@@ -14,15 +15,30 @@ export class WeatherDashboardComponent implements OnInit {
   
     constructor(private weather:FeaturesService,private toastr:ToastrService, public themeService:ThemeService) { }
     getWeather(values:any){
-      this.weather.getWeatherData(values.cityName).subscribe((data:any)=>{
+      this.weather.getWeatherData(values.cityName).subscribe({
+        next:(data:any)=>{
+          
         this.weatherData=data;
         this.isGetWeather=true;
+      },
+      error:((err:any)=>{
+        this.toastr.error("Please make sure to enter a city name correctly !")
+      })
       })
       this.weather.postWeatherData(values).subscribe((data:any)=>{
         this.toastr.success("Weather Data Posted Successfully !!");
       });
     }
     ngOnInit(): void {
+      const auth = initializeAuth(environment.firebaseConfig.appId, {
+  persistence: "browserSessionPersistence",
+  popupRedirectResolver: undefined,
+});
+
       var continueUser=localStorage.setItem('lastroute','weather')
     }
 }
+function initializeAuth(app: any, arg1: { persistence: any; popupRedirectResolver: undefined; }) {
+  throw new Error('Function not implemented.');
+}
+

@@ -1,42 +1,63 @@
 <nav [ngClass]="themeService.getCurrentTheme() === 'light' 
-  ? 'navbar navbar-expand-lg bg-body-tertiary' 
-  : 'navbar navbar-expand-lg navbar-dark bg-dark'">
+  ? 'navbar navbar-expand-lg bg-body-tertiary shadow-sm' 
+  : 'navbar navbar-expand-lg navbar-dark bg-dark shadow-sm'">
 
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Cryptosteller</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold fs-4" href="#">Cryptosteller</a>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link active fw-semibold" aria-current="page"
+             (click)="closeNavbar()">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" value="weather" name="weather" 
+             (click)="checkUserAuthenticated($event); closeNavbar()">Weather</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" value="crypto" name="crypto" 
+             (click)="checkUserAuthenticated($event); closeNavbar()">Crypto News</a>
+        </li>
+
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <!-- Logout -->
+        <button class="btn btn-sm btn-outline-secondary  "    [ngClass]="themeService.getCurrentTheme()=='light' ? 'text-dark' : 'text-white'" (click)="userLogout()" *ngIf="authService.isUserLoggedIn()">
+          <i class="fa-solid fa-right-from-bracket"></i>  Logout
+        </button>
+        
+        <!-- Theme Toggle -->
+        <button class="btn btn-sm btn-outline-secondary  " 
+        (click)="toggleTheme(); closeNavbar()"  
+        [ngClass]="themeService.getCurrentTheme()=='light' ? 'text-dark' : 'text-white'">
+        
+        <ng-container *ngIf="themeService.getCurrentTheme()=='light'">
+          <i class="fa-solid fa-moon m-1"></i> 
+          <span class="d-none d-sm-inline">Dark Mode</span>
+        </ng-container>
+        
+        <ng-container *ngIf="themeService.getCurrentTheme()=='dark'">
+          <i class="fa-solid fa-lightbulb m-1"></i> 
+          <span class="d-none d-sm-inline">Light Mode</span>
+        </ng-container>
+        
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" >Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" value="weather" (click)="checkUserAuthenticated($event)" name="weather">Weather</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" value="crypto"  name="crypto" (click)="checkUserAuthenticated($event)">Crypto News</a>
-          </li>
-        </ul>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-          <ul class="navbar-nav navbar-left">
-            <div class="container" >
-               
-  
-
-            </div>
-            </ul>
-            <button class="btn btn-outline-secondary ms-auto" (click)="toggleTheme()"  [ngClass]="themeService.getCurrentTheme()=='light'?'text-dark':'text-white'">
-              <div *ngIf="themeService.getCurrentTheme()=='light'">
-                  <i class="fa-solid fa-moon"></i> Dark Mode
-              </div>
-               <div *ngIf="themeService.getCurrentTheme()=='dark'">
-              <i class="fa-solid fa-lightbulb"></i> Light Mode
-              </div>
-            </button>
-          </div>
-      </div>
     </div>
-  </nav>
+    </div>
+  </div>
+</nav>
