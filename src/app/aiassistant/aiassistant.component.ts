@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, ViewChild } from '@angular/core';
 import { AssistantService } from '../assistant.service';
 import { ThemeService } from '../theme.service';
 
@@ -7,14 +7,18 @@ import { ThemeService } from '../theme.service';
   templateUrl: './aiassistant.component.html',
   styleUrls: ['./aiassistant.component.css']
 })
-export class AiassistantComponent {
+export class AiassistantComponent implements AfterViewChecked{
   assistantResponse:string =  "";
+  @ViewChild('messageList') private messageList!: ElementRef;
   messages: { sender: string, text: string }[] = [];
   userInput: string = '';
-  isChatOpen = false;
+  isChatOpen = false; 
   constructor(private aiassistant:AssistantService,public themeService:ThemeService){
 
   } 
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();  
+  }
   sendMessage() {
     if (this.userInput.trim() === '') {
       return;
@@ -23,8 +27,8 @@ export class AiassistantComponent {
     this.messages.push({ sender: 'user', text: this.userInput }); 
     const typingIndicator = { sender: 'assistant', text: 'Typing...' };
     this.messages.push(typingIndicator);
-    
-    const lowerCaseInput = this.userInput.toLowerCase().trim();
+
+    //scroll to bottom of chat after every message
     this.aiassistant.sendMessage(this.userInput).then((val:any)=>{
       this.assistantResponse = val;
       this.messages.pop();
@@ -40,7 +44,12 @@ export class AiassistantComponent {
     this.assistantResponse = "";
   }
 
-toggleChat() {
-  this.isChatOpen = !this.isChatOpen;
-}
+  toggleChat() {
+    this.isChatOpen = !this.isChatOpen;
+  }
+ private scrollToBottom(): void {
+    try {
+      this.messageList.nativeElement.scrollTop = this.messageList.nativeElement.scrollHeight;
+    } catch (err) { }
+  }
 }
