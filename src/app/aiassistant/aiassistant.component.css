@@ -17,7 +17,7 @@
 }
 
 /* Open animation */
-.chat-container.open {
+.chat-container.open { 
   transform: translateY(0);
 }
 
@@ -54,6 +54,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-x: hidden;
+
 }
 
 /* User and Assistant Messages */
