@@ -20,6 +20,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { environment } from 'src/environments/environment';
 import { getAnalytics } from "firebase/analytics";
 import { AngularFireModule } from '@angular/fire/compat';
+import { AiassistantComponent } from './aiassistant/aiassistant.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     CryptoDashboardComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AiassistantComponent
   ],
   imports: [
     BrowserModule,

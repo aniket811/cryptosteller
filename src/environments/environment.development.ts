@@ -12,5 +12,6 @@ export const environment = {
         messagingSenderId: "803500551544",
         appId: "1:803500551544:web:78dab4ddbe77d8d3072c8d",
         measurementId: "G-FT207SQZHP"
-    }
+    },
+     geminiAPI:"AIzaSyDIPBLbrD1Cmd8rbL3pzXFOil1D_bxRuKA"
 };
