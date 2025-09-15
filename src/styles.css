@@ -24,3 +24,7 @@ body.dark-mode .card {
 body.dark-mode .navbar {
   background-color: #222;
 }
+
+.clickable{
+  cursor: pointer;
+}
