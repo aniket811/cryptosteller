@@ -30,15 +30,9 @@ export class WeatherDashboardComponent implements OnInit {
       });
     }
     ngOnInit(): void {
-      const auth = initializeAuth(environment.firebaseConfig.appId, {
-  persistence: "browserSessionPersistence",
-  popupRedirectResolver: undefined,
-});
 
-      var continueUser=localStorage.setItem('lastroute','weather')
+      localStorage.setItem('lastroute', 'weather');
     }
 }
-function initializeAuth(app: any, arg1: { persistence: any; popupRedirectResolver: undefined; }) {
-  throw new Error('Function not implemented.');
-}
+
 

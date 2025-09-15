@@ -1,0 +1,29 @@
+<!-- Floating Chat Button -->
+<div class="chat-toggle" (click)="toggleChat()"   [ngClass]="themeService.getCurrentTheme()=='light'?'text-dark ':'text-white '" >
+  <span class="chat-label">AeroCrypt AI</span>
+  <span class="chat-icon">💬</span>
+</div>
+
+<!-- Chat Container -->
+<div class="chat-container" [ngClass]="{'open': isChatOpen}">
+  <div class="chat-header">
+    <span class="chat-title">AeroCrypt AI</span>
+    <button class="chat-close" (click)="toggleChat()">✖</button>
+  </div>
+
+  <div class="message-list" id="messageList" [ngClass]="themeService.getCurrentTheme()=='light'?'text-dark bg-light':'text-white bg-dark '">
+    <div *ngFor="let message of messages"
+         [ngClass]="{'user-message': message.sender === 'user', 'assistant-message': message.sender === 'assistant'}">
+      <p>{{ message.text }}</p>
+    </div>
+  </div>
+
+  <div class="input-container" [ngClass]="themeService.getCurrentTheme()=='light'?'text-dark bg-light':'text-white bg-dark '">
+    <input type="text" 
+    class="border border-dark"
+           [(ngModel)]="userInput"
+           (keyup.enter)="sendMessage()"
+           placeholder="Type your message...">
+    <button (click)="sendMessage()">➤</button>
+  </div>
+</div>
