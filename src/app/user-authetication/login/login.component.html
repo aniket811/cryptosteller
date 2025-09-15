@@ -31,11 +31,11 @@
           <div class="u-form-group">
           <input type="button" value="Send Reset Password Link" class="signin" (click)="sendPasswordResetEmail(email.value)" >
         </div> 
-         <div class="forgot-password" *ngIf="isUserForgottenPassword">
+         <div class="forgot-password clickable" *ngIf="isUserForgottenPassword">
           <a (click)="forgotPassword()">Go Back to Login </a>
       </div>
       </div>
-        <div class="forgot-password" *ngIf="!isUserForgottenPassword">
+        <div class="forgot-password clickable" *ngIf="!isUserForgottenPassword">
           <a (click)="forgotPassword()">Forgot Password?</a>
       </div>
     </form>
