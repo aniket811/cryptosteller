@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
    }
   checkUserAuthenticated(routeVal:any)
   {
+    
    
       this.router.navigateByUrl(routeVal.target.name)
     
