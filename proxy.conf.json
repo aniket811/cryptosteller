@@ -1,0 +1,11 @@
+{
+  "/leakcheck": {
+    "target": "https://leakcheck.io",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/leakcheck": ""
+    }
+  }
+}

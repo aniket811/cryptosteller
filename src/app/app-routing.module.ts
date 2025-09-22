@@ -5,12 +5,15 @@ import { WeatherDashboardComponent } from './dashboard/weather-dashboard/weather
 import { CryptoDashboardComponent } from './dashboard/crypto-dashboard/crypto-dashboard.component';
 import { RegisterComponent } from './user-authetication/register/register.component';
 import { AuthsguardGuard } from './guards/authsguard.guard';
+import { CredentialExposureCheckComponent } from './credential-exposure-check/credential-exposure-check.component';
 const routes: Routes = [
   {path:"",component:LoginComponent, canActivate:[AuthsguardGuard]},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'weather',component:WeatherDashboardComponent,data:{name:'weather'},canActivate:[AuthsguardGuard]},
-  {path:'crypto',component:CryptoDashboardComponent,data:{name:'crypto'},canActivate:[AuthsguardGuard]}
+  {path:'crypto',component:CryptoDashboardComponent,data:{name:'crypto'},canActivate:[AuthsguardGuard]},
+  {path:'breach-check',component:CredentialExposureCheckComponent,data:{name:'breach-check'},canActivate:[AuthsguardGuard]}
+
 ];
 
 @NgModule({

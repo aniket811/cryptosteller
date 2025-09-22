@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { getAnalytics } from "firebase/analytics";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AiassistantComponent } from './aiassistant/aiassistant.component';
+import { CredentialExposureCheckComponent } from './credential-exposure-check/credential-exposure-check.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { AiassistantComponent } from './aiassistant/aiassistant.component';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    AiassistantComponent
+    AiassistantComponent,
+    CredentialExposureCheckComponent
   ],
   imports: [
     BrowserModule,

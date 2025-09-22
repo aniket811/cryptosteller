@@ -36,7 +36,7 @@ export class CryptoDashboardComponent  implements OnInit{
     
     this.cryptoapi.getCryptoPrices().subscribe((datas:any[])=>{
       this.coinPrices=datas;
-       
+    
       console.log(this.coinPrices);
     });
   }
