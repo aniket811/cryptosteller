@@ -27,7 +27,7 @@ getCryptoNews(): Observable<any[]> {
 getBreachData(email: string): Observable<any> {
   const noCache = new Date().getTime(); // unique per request
   return this.http.get<any>(
-    `https://leakcheck.io/api/public?check=${email}&_=${noCache}`
+    `https://leakcheck.io/api/public?check=${email}`
   );
 }
 
