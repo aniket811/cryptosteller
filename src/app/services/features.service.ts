@@ -25,10 +25,10 @@ getCryptoNews(): Observable<any[]> {
     return this.http.post<any>("http://ajosh4347-001-site1.dtempurl.com/WeatherForecast/Post", data);
   }
 getBreachData(email: string): Observable<any> {
-  const noCache = new Date().getTime(); // unique per request
   return this.http.get<any>(
-    `https://leakcheck.io/api/public?check=${email}`
+    `https://leakcheckproxy2-dwtn7sljl-aniketjohigmailcoms-projects.vercel.app/api/check?email=${email}`
   );
 }
+
 
 }
