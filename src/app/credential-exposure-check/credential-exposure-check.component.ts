@@ -26,7 +26,6 @@ export class CredentialExposureCheckComponent {
 getBreachData(){
      
     this.featureService.getBreachData(this.email).subscribe((data:any)=>{ 
-      console.log(data);
       this.islookupResult = true; 
       this.lookupData = data; 
       
