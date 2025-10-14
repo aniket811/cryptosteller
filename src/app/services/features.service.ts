@@ -25,6 +25,7 @@ getCryptoNews(): Observable<any[]> {
     return this.http.post<any>("http://ajosh4347-001-site1.dtempurl.com/WeatherForecast/Post", data);
   }
 getBreachData(email: string): Observable<any> {
+
   const url = 'https://leakinsight-api.p.rapidapi.com/general/';
 
   const headers = new HttpHeaders({
@@ -38,5 +39,6 @@ getBreachData(email: string): Observable<any> {
 
   return this.http.get<any>(url, { headers, params });
 }
+
 
 }
