@@ -24,15 +24,15 @@ export class CredentialExposureCheckComponent {
 
 }
 getBreachData(){
-      
-    this.featureService.getBreachData(this.email).subscribe((data:any)=>{
+     
+    this.featureService.getBreachData(this.email).subscribe((data:any)=>{ 
       this.islookupResult = true; 
       this.lookupData = data; 
       
       if(this.lookupData.success==false){
         this.toastr.info("Congratulations! No breach data found for this email","No Data Found");  
       }
-      
+      console.log(this.lookupData.results.source)
       this.spinner.hide();
     }, (error: any) => {
       this.spinner.hide();
