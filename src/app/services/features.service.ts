@@ -18,8 +18,8 @@ getWeatherData(cityName: string): Observable<any[]> {
 getCryptoNews(): Observable<any[]> {
   return this.http.get<any[]>(`${this.cryptoapis}/data/v2/news/?lang=EN&api_key=${this.cryptoapikey}`);
 }
-   getCryptoPrices(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.cryptoapis}/data/pricemulti?&tsyms=USD,EUR,INR`)
+ getCryptoPrices():Observable<any[]>{
+    return this.http.get<any[]>(`${this.cryptoapis}/data/pricemulti?fsyms=BTC,ETH,D,BNB,USDC,XRP,ARB,SHIB,TRX,BUSD&tsyms=USD,EUR,INR`)
   }
    postWeatherData(data: any): Observable<any> {
     return this.http.post<any>("http://ajosh4347-001-site1.dtempurl.com/WeatherForecast/Post", data);
