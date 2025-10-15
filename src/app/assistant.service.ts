@@ -9,8 +9,9 @@ GEMINI_API_KEY = environment.geminiAPI;
 constructor() { }
 ai = new GoogleGenAI({apiKey: this.GEMINI_API_KEY});
   async sendMessage(message:string){
+    // gemini 2.5 flash
     const response = await this.ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-2.5-flash",
       contents: message,
     });
     const generatedText = response.text?.toString();
