@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/leakcheck/(.*)",
+      "destination": "https://leakcheck.io/$1"
+    }
+  ]
+}
