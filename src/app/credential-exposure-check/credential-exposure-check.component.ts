@@ -15,7 +15,8 @@ export class CredentialExposureCheckComponent {
   islookupResult :boolean = false;
   constructor(private toastr:ToastrService,public  themeService:ThemeService ,private spinner:NgxSpinnerService , private featureService:FeaturesService) {}
   checkBreach(email:any){ 
-    this.email = email;
+    console.log(email.value)
+    this.email = email.value;
     this.spinner.show();
     if(this.email.trim() === ''){
       this.toastr.error("Please enter a valid email address or username","Error");  
@@ -25,7 +26,7 @@ export class CredentialExposureCheckComponent {
 
 }
 getBreachData(){
-     
+    console.log(this.email, "email ");
     this.featureService.getBreachData(this.email).subscribe((data:any)=>{ 
       this.onBreachData(true,data); 
     }, (error: any) => {
@@ -36,9 +37,12 @@ getBreachData(){
 } 
 onBreachData(flag:boolean,data?:boolean){
   if(flag){
-       this.islookupResult = true; 
+      this.islookupResult = true; 
       this.lookupData = data; 
-      if(this.lookupData.success==false){
+      
+  console.log(this.islookupResult,"isLookUpresult");
+  console.log(this.lookupData,"lookupData");
+      if(this.lookupData.results?.length < 0){
         this.toastr.info("Congratulations! No breach data found for this email","No Data Found");  
       }
       console.log(this.lookupData.results.source)
