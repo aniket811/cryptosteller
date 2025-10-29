@@ -11,10 +11,15 @@ export class AuthsguardGuard implements CanActivate {
   constructor(private authservice:AuthenticationService,private route:Router,private toast:ToastrService) { }
 canActivate(): boolean {
     if (!this.authservice.isUserLoggedIn()) {
-      this.route.navigate(['/login']);
+        this.route.navigate(['/login']);
         return false;
     }
+    
     return true;
+}
+getCurrentUrlPath():string {
+  console.log(this.route, "Route URL");
+  return this.route.url;
 }
   
 }

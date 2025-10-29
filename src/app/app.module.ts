@@ -22,6 +22,7 @@ import { getAnalytics } from "firebase/analytics";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AiassistantComponent } from './aiassistant/aiassistant.component';
 import { CredentialExposureCheckComponent } from './credential-exposure-check/credential-exposure-check.component';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { CredentialExposureCheckComponent } from './credential-exposure-check/cr
     LoginComponent,
     RegisterComponent,
     AiassistantComponent,
-    CredentialExposureCheckComponent
+    CredentialExposureCheckComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
