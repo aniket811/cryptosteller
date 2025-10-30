@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:"home",component:HomeComponent ,canActivate:[AuthsguardGuard]},
   {path:'login',component:LoginComponent,canActivate:[AuthsguardGuard]},
   {path:'register',component:RegisterComponent,canActivate:[AuthsguardGuard]},
-  {path:'weather',component:WeatherDashboardComponent,data:{name:'weather'},canActivate:[AuthsguardGuard]},
+  {path:'weather',component:WeatherDashboardComponent,data:{name:'weather'}},
   {path:'crypto',component:CryptoDashboardComponent,data:{name:'crypto'},canActivate:[AuthsguardGuard]},
   {path:'breach-check',component:CredentialExposureCheckComponent,data:{name:'breach-check'},canActivate:[AuthsguardGuard]},
   {path:"**",component:HomeComponent},

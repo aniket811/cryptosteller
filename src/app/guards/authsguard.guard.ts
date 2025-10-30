@@ -9,17 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class AuthsguardGuard implements CanActivate {
   constructor(private authservice:AuthenticationService,private route:Router,private toast:ToastrService) { }
+  
 canActivate(): boolean {
-    if (!this.authservice.isUserLoggedIn()) {
-        this.route.navigate(['/login']);
+ const  isUserLogin = this.authservice.isUserLoggedIn();
+  // if user is not logged in and trying to access login page  redirect to weather 
+    if (! isUserLogin && this.authservice.getCurrentRoute() === '/login') {
+        this.route.navigate(['/home']);
         return false;
+    } 
+    else if (isUserLogin && this.authservice.getCurrentRoute() === '/login') {
+      this.route.navigate(['/weather']);
     }
-    
     return true;
 }
-getCurrentUrlPath():string {
-  console.log(this.route, "Route URL");
-  return this.route.url;
-}
-  
+
 }

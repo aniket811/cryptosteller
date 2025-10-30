@@ -16,4 +16,7 @@ export class AuthenticationService {
         this.router.navigateByUrl("/weather");
       }
     }
+    getCurrentRoute():string{
+      return window.location.pathname ;
+    }
 }
